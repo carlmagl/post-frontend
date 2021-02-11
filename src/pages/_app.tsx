@@ -1,12 +1,16 @@
-import { ThemeProvider } from "@chakra-ui/react";
+import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { ChakraProvider, ThemeProvider } from "@chakra-ui/react";
 import React from "react";
+import { PaginatedPosts, PostsQuery } from "../generated/graphql";
 import theme from "../theme";
 
 function MyApp({ Component, pageProps }: any) {
   return (
-    <ThemeProvider theme={theme}>
-      <Component {...pageProps} />
-    </ThemeProvider>
+    <ChakraProvider>
+      <ThemeProvider theme={theme}>
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </ChakraProvider>
   );
 }
 export default MyApp;
